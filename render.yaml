@@ -1,0 +1,24 @@
+services:
+  # Backend API service
+  - type: web
+    name: navad-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false   # set in dashboard
+      - key: NODE_ENV
+        value: production
+
+  # Frontend static site service
+  - type: web
+    name: navad-frontend
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/build
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
