@@ -1,0 +1,88 @@
+/* Section */
+.tools {
+  position: relative;
+  padding: 4.5rem 0;
+  animation: tools-in .6s ease-out both;
+}
+.tools__title {
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+  margin: 0 0 2.5rem;
+}
+@keyframes tools-in {
+  from { opacity: 0; transform: translateY(14px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+
+/* Viewport with fade edges (works on any bg) */
+.tools-viewport {
+  position: relative;
+  overflow: hidden;
+  padding-block: 10px;
+  --edge-fade: 70px;
+
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0,
+    #000 var(--edge-fade),
+    #000 calc(100% - var(--edge-fade)),
+    transparent 100%);
+          mask-image: linear-gradient(to right,
+    transparent 0,
+    #000 var(--edge-fade),
+    #000 calc(100% - var(--edge-fade)),
+    transparent 100%);
+}
+
+/* Moving track (we translateX it from JS) */
+.tools-track {
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+
+/* Icon unit (no background) */
+.toolIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 22px;   /* ✅ visible gap between icons */
+  padding: 2px 4px; /* small hit area */
+  border-radius: 8px;
+  flex-shrink: 0;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transform: translateZ(0) scale(1);
+  transition: transform .25s cubic-bezier(.2,.8,.2,1), filter .25s ease;
+}
+
+.toolIcon img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.25));
+}
+.toolIcon span {
+  font-size: .95rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: .2px;
+}
+
+/* Auto-pop effect when at center */
+.toolIcon--pop {
+  transform: translateY(-6px) scale(1.32);
+  filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.345));
+}
+
+
+
+
+
+
+
+
+

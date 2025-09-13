@@ -1,0 +1,48 @@
+.contact-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-3d {
+  width: 400px;
+  height: 400px;
+  position: relative;
+}
+
+
+
+.contact-form textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  outline: none;
+  transition: border-color .2s ease, background .2s ease;
+  margin-top: 10px;
+}
+.contact-form textarea:focus {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+}
+
+.contact-toast {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+.contact-toast.ok {
+  color: #0ef;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+}
+.contact-toast.err {
+  color: #ff7a7a;
+  background: rgba(255, 100, 100, 0.08);
+  border: 1px solid rgba(255, 100, 100, 0.25);
+}
